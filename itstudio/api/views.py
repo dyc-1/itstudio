@@ -108,11 +108,9 @@ def check(request):
         else:
             return dict_to_json(state='emailError', messages='未提交邮箱', status='None')
 
-
+@ban
 def department(request):
     if request.method == 'GET':
-        request.session['ip'] = get_ip(request)
-        request.session['ban'] = request.GET.get('ban')
         js = []
         deps = Department.objects.all()
         for i in deps:
